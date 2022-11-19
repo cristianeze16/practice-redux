@@ -14,6 +14,14 @@ function App() {
   // useEffect(()=>{
 let numero=useSelector(state=>state.counter.value)
 
+let incremental = ()=>{
+  dispatch(reduxAction());
+}
+let decremental = ()=>{
+  dispatch(decCounter());
+
+}
+
  
   return (
     <div className="App">
@@ -30,21 +38,9 @@ let numero=useSelector(state=>state.counter.value)
         >
           Learn React
         </a>
-        <button
-          onClick={() => {
-            dispatch(reduxAction());
-          }}
-        >
-          +
-        </button>
+        <button onClick={incremental}>+</button>
         <p>Contador : {numero}</p>
-        <button onClick={
-          ()=>{
-            dispatch(decCounter())
-          }
-        }>
-          -
-        </button>
+        <button onClick={decremental}>-</button>
       </header>
     </div>
   );
